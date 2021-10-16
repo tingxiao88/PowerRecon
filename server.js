@@ -19,7 +19,7 @@ io.sockets.on("connection", (socket) => {
   socket.on("data_back", (object) => {
     dictionary_from_json = JSON.parse(object);
     console.log(dictionary_from_json);
-    socket.emit("send", dictionary_from_json);
+    socket.broadcast.emit("send", dictionary_from_json);
     console.log(dictionary_from_json["optimun_temp"]);
     console.log("emit send");
   });

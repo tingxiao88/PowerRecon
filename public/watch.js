@@ -19,19 +19,27 @@ currentTemp = document.querySelector("#currentTemperature");
 optimumTemp = document.querySelector("#optimunTemp");
 AirconTemp = document.querySelector("#AirconTemperature");
 currentFan = document.querySelector("#currentFanSpeed");
+person = document.querySelector("#Person");
 
 console.log(currentTemp.innerHTML);
 console.log(optimumTemp);
 console.log(AirconTemp);
 console.log(currentFan);
 
-currentTemp.innerHTML = "10000";
 socket.on("send", (file) => {
   console.log("data_incomming");
   currentTemp.innerHTML = file["current-temp"];
+  optimumTemp.innerHTML = file["optimun_temp"];
+  currentFan.innerHTML = file["aircon-fan"];
+  AirconTemp.innerHTML = file["aircon-temp"];
+  person.innerHTML = file["person"];
   console.log(file["current-temp"]);
-  console.log(file);
 });
+
+// socket.on("send", (file) => {
+//   console.log("data_incomming");
+//   console.log(file);
+// });
 
 socket.on("offer", (id, description) => {
   console.log("offer");
