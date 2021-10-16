@@ -5,9 +5,25 @@ The Solution is an AI-based camera system that is able to detect humans in the c
 
 ## Usage
 
+1. Navigate to the project directory
+2. Start up the Node Server by typing ```node server.js```
+3. Activate the Conda environment by typing ```conda activate PowerRecon```
+4. Once the environment is up and running, run the ```model.py``` file inside the Python folder.
+5. In any web browser, open up ```http://localhost:4000``` to view the dashboard.
+
+
 ## Dependancies
 
 **JavaScript Dependencies**
+
+- Express.JS
+- Socket.IO
+- HTTP
+
+```bash
+## Run the command below to install the necessary dependancies
+npm i express socket.io http
+```
 
 
 **Python Dependencies**
