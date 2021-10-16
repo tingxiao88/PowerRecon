@@ -53,7 +53,7 @@ npm i express socket.io http
 ### Python Dependencies
 
 - mediapipe
-- python-socketio[client]
+- python-socketio
 - opencv-python
 - datetime
 - json
