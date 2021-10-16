@@ -16,27 +16,29 @@ PowerRecon is a computer vision based solution, consisting of a object detection
 
 ## Getting Started
 
-1. Navigate to the project
+1. Navigate to the project directory
 
 ```bash
 cd <Directory>
 ```
 
-2. Start up the Node Server
+1. Start up the Express.js server (It is a prerequisite that **Node.js** is installed )
 
 ```bash
+npm i ## Run this command only if the packages are not installed
 node server.js
 ```
 
-3. Activate the Conda virtual environment and install python dependencies
+1. Activate the Conda virtual environment and install python dependencies
 
 ```bash
+## Only do this step once
 conda create --name PowerRecon python==3.8
 conda activate PowerRecon
 pip install -r requirements.txt
 ```
 
-4. Once the environment is up and running, run the ```model.py``` file inside the Python folder. There should be another window displaying a live video feed and a face detection bounding box.
+4. Once the environment is up and running, run the ```model.py``` file inside the Python folder. There should be another window displaying a  **video feed** and a **face detection bounding box**.
 
 ```bash
 ## Ensure Environment is up 
@@ -45,11 +47,12 @@ python model.py
 
 5. ⚠️ **Important Note**: For the sake of this demonstration (and the lack of time to do further development), we used **OBS Studio** to broadcast the window via a virtual camera client provided.
 
-    - Go to this URL [https://video-stream-mlda.herokuapp.com/broadcast.html](https://video-stream-mlda.herokuapp.com/broadcast.html)
-    - Set the camera to the virtual camera by OBS Studio
+    - Open OBS Studio -> Go to Virtual camera -> Select MediaPipe Window -> Start Virtual Camera
+    - Go to this URL [https://video-stream-mlda.herokuapp.com/broadcast.html](https://video-stream-mlda.herokuapp.com/broadcast.html), ensure to allow camera on the browser
+    - Direct browser camera to the virtual camera by OBS Studio (Ensure that it captures MediaPipe Video Feed)
     - The video feed will be broadcasted live to the [Dashboard](https://video-stream-mlda.herokuapp.com/).
 
-6. In any web browser, open up ```http://localhost:4000``` to view the dashboard.
+6. In any web browser, open up ```http://localhost:4000``` or the [host web page](https://video-stream-mlda.herokuapp.com/) to view the dashboard.
 
 ---
 
