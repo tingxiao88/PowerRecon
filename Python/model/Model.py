@@ -7,6 +7,7 @@ import socketio
 
 df_temp = pd.read_csv('../Data/TempData2.csv').drop('Unnamed: 0', axis=1)
 
+# from socketIO_client import SocketIO, LoggingNamespace
 
 # from peekingduck.pipeline.model import yolo
 mp_face_detection = mp.solutions.face_detection
@@ -14,9 +15,7 @@ mp_drawing = mp.solutions.drawing_utils
 
 sio = socketio.Client()
 
-# sio.connect('https://video-stream-mlda.herokuapp.com/')
-sio.connect('http://localhost:5000/')
-
+sio.connect('https://video-stream-mlda.herokuapp.com/')
 
 @sio.on('python_connection')
 def connection():
