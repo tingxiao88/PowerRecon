@@ -2,7 +2,7 @@
 
 ![PowerRecon Logo](public/BW%20Transparent.png)
 
-PowerRecon is the solution that our team (Doggo Ipsum) is submitting for the NTU MLDA-Hackathon.
+PowerRecon is the solution that our team (73 Doggo Ipsum) is submitting for the NTU MLDA-Hackathon.
 
 ---
 
