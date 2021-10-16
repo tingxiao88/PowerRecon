@@ -12,7 +12,7 @@ import socketio
 
 sio = socketio.Client()
 
-sio.connect('http://localhost:4000')
+sio.connect('https://video-stream-mlda.herokuapp.com/')
 
 @sio.on('python_connection')
 def connection():
