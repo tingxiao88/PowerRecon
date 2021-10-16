@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 let broadcaster;
-const port = process.env.PORT || 4000;
+const port = 4000;
 
 const http = require("http");
 const server = http.createServer(app);
@@ -14,7 +14,7 @@ app.use("broadcast", express.static(__dirname + "/broadcast.html"));
 
 io.sockets.on("error", (e) => console.log(e));
 io.sockets.on("connection", (socket) => {
-  socket.emit("python_connection", () => {});
+  socket.emit("python_connection", () => { });
   socket.emit("python_file");
   socket.on("data_back", (object) => {
     dictionary_from_json = JSON.parse(object);

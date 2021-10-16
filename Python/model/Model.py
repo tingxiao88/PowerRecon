@@ -3,7 +3,7 @@ import json
 import cv2
 import mediapipe as mp
 
-from socketIO_client import SocketIO, LoggingNamespace
+# from socketIO_client import SocketIO, LoggingNamespace
 
 # from peekingduck.pipeline.model import yolo
 mp_face_detection = mp.solutions.face_detection
