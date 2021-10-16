@@ -10,6 +10,8 @@ PowerRecon is the solution that our team (73 Doggo Ipsum) is submitting for the 
 
 PowerRecon is a computer vision based solution, consisting of a object detection based camera system that is able to detect the presense of humans in the compound and be able to intelligently change and regulate the compound's temperature and air-conditionaing fan speed.
 
+[Web Page hosted on Heroku](https://video-stream-mlda.herokuapp.com/)
+
 ---
 
 ## Getting Started
@@ -26,20 +28,28 @@ cd <Directory>
 node server.js
 ```
 
-3. Activate the Conda environment by typing
+3. Activate the Conda virtual environment and install python dependencies
 
 ```bash
+conda create --name PowerRecon python==3.8
 conda activate PowerRecon
+pip install -r requirements.txt
 ```
 
-4. Once the environment is up and running, run the ```model.py``` file inside the Python folder.
+4. Once the environment is up and running, run the ```model.py``` file inside the Python folder. There should be another window displaying a live video feed and a face detection bounding box.
 
 ```bash
 ## Ensure Environment is up 
 python model.py
 ```
 
-5. In any web browser, open up ```http://localhost:4000``` to view the dashboard.
+5. ⚠️ **Important Note**: For the sake of this demonstration (and the lack of time to do further development), we used **OBS Studio** to broadcast the window via a virtual camera client provided.
+
+    - Go to this URL [https://video-stream-mlda.herokuapp.com/broadcast.html](https://video-stream-mlda.herokuapp.com/broadcast.html)
+    - Set the camera to the virtual camera by OBS Studio
+    - The video feed will be broadcasted live to the [Dashboard](https://video-stream-mlda.herokuapp.com/).
+
+6. In any web browser, open up ```http://localhost:4000``` to view the dashboard.
 
 ---
 
