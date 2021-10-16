@@ -2,28 +2,27 @@ import datetime
 import json
 import cv2
 import mediapipe as mp
+import pandas as pd
+import socketio
 
-from socketIO_client import SocketIO, LoggingNamespace
+df_temp = pd.read_csv('../Data/TempData2.csv').drop('Unnamed: 0', axis=1)
+
 
 # from peekingduck.pipeline.model import yolo
 mp_face_detection = mp.solutions.face_detection
 mp_drawing = mp.solutions.drawing_utils
-import socketio
 
 sio = socketio.Client()
 
-sio.connect('http://localhost:4000')
+# sio.connect('https://video-stream-mlda.herokuapp.com/')
+sio.connect('http://localhost:5000/')
+
 
 @sio.on('python_connection')
 def connection():
-    print(f"I'm connected! text from the server:")
-    connection_return_package = {
-        'current-temp': '29',
-        'optimun_temp': '22',
-        'aircon-fan' : '4',
-        'aircon-temp' : '20',
-    }
+    print(f"I'm connected!")
 
+    temp_count = 0
     frames = 0
     counter = 0
     cap = cv2.VideoCapture(0)
@@ -65,18 +64,65 @@ def connection():
             cv2.imshow('MediaPipe Face Detection', img)
             frames = frames + 1
             if frames > 30:
-                print(frames)
-                print('reaching 30')
-                print(f"I'm connected! text from the server:")
+                # counter for mock temperature data
+                temp_count = temp_count + 1
+                if temp_count > 500:
+                    temp_count = 0
+
+                # start the returning of the data to our webapp
                 connection_return_package = {
-                    'current-temp': '29',
-                    'optimun_temp': '22',
-                    'aircon-fan': '4',
-                    'aircon-temp': '20',
+                    'current-temp': 29,
+                    'optimun_temp': 22,
+                    'aircon-fan': 4,
+                    'aircon-temp': 20,
                 }
                 print('Returning File')
+                connection_return_package['current-temp'] = int(float(df_temp.loc[temp_count].values))
                 connection_return_package['time'] = str(datetime.datetime.now())
                 connection_return_package['person'] = counter
+                connection_return_package['well_cooled'] = 'false'
+
+                # fan control logic
+                current_temp = connection_return_package['current-temp']
+                optimun_temp = connection_return_package['optimun_temp']
+                aircon_fan = connection_return_package['aircon-fan']
+                aircon_temp = connection_return_package['aircon-temp']
+
+                difference = float(connection_return_package['current-temp']) - float(connection_return_package['optimun_temp'])
+                if difference > 10:
+                    aircon_fan = 5
+                    aircon_temp = current_temp - 10
+                if  8<difference<10:
+                    aircon_fan = 4
+                    aircon_temp = current_temp - 10
+                if  6<difference<8:
+                    aircon_fan = 4
+                    aircon_temp = current_temp - 10
+                if  4<difference<6:
+                    aircon_fan = 3
+                    aircon_temp = current_temp - 8
+                if  2<difference<4:
+                    aircon_fan = 2
+                    aircon_temp = current_temp - 6
+                if  0<difference<2:
+                    aircon_fan = 2
+                    aircon_temp = current_temp - 4
+                if  difference<0:
+                    aircon_fan = 1
+                    aircon_temp = current_temp + 1
+                if -1<difference<1:
+                    connection_return_package['well_cooled'] = 'true'
+                if aircon_temp < 18:
+                    aircon_temp = 18
+                if connection_return_package['person'] == 0:
+                    aircon_fan = 'OFF'
+                    aircon_temp = 'OFF'
+
+                # update the dictionary
+                connection_return_package['aircon-temp'] = aircon_temp
+                connection_return_package['aircon-fan'] = aircon_fan
+
+
                 # print(connection_return_package)
                 json_file = json.dumps(connection_return_package)
                 print(json_file)

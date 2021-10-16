@@ -20,6 +20,9 @@ optimumTemp = document.querySelector("#optimunTemp");
 AirconTemp = document.querySelector("#AirconTemperature");
 currentFan = document.querySelector("#currentFanSpeed");
 person = document.querySelector("#Person");
+well_cooled = document.querySelector("#well_cooled");
+well_cooled.innerHTML = "No, the room temp is not optimun";
+well_cooled.style.color = "#a4161a";
 
 console.log(currentTemp.innerHTML);
 console.log(optimumTemp);
@@ -33,6 +36,15 @@ socket.on("send", (file) => {
   currentFan.innerHTML = file["aircon-fan"];
   AirconTemp.innerHTML = file["aircon-temp"];
   person.innerHTML = file["person"];
+
+  if (file["well_cooled"] == "true") {
+    well_cooled.innerHTML = "Yes, the room is well cooled!";
+    well_cooled.style.color = "#2b9348";
+  } else {
+    well_cooled.innerHTML = "No, the room temp is not optimun";
+    well_cooled.style.color = "#a4161a";
+  }
+
   console.log(file["current-temp"]);
 });
 
