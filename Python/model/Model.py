@@ -5,11 +5,10 @@ import mediapipe as mp
 import pandas as pd
 import socketio
 
+
 df_temp = pd.read_csv('../Data/TempData2.csv').drop('Unnamed: 0', axis=1)
 
-# from socketIO_client import SocketIO, LoggingNamespace
-
-# from peekingduck.pipeline.model import yolo
+# import mediapipe model from google
 mp_face_detection = mp.solutions.face_detection
 mp_drawing = mp.solutions.drawing_utils
 
@@ -26,12 +25,12 @@ def connection():
     counter = 0
     cap = cv2.VideoCapture(0)
     with mp_face_detection.FaceDetection(
+            # the best parameters based on the room lighting
             model_selection=1, min_detection_confidence=0.4) as face_detection:
         while cap.isOpened():
             success, image = cap.read()
             if not success:
                 print("Ignoring empty camera frame.")
-                # If loading a video, use 'break' instead of 'continue'.
                 continue
             # Flip the image horizontally for a later selfie-view display, and convert
             # the BGR image to RGB.

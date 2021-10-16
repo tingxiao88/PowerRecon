@@ -46,8 +46,13 @@ socket.on("send", (file) => {
     well_cooled.innerHTML = "No, the room temp is not optimun";
     well_cooled.style.color = "#a4161a";
   }
-
-  console.log(file["current-temp"]);
+  if (file["aircon-temp"] == "OFF" && file["aircon-fan"] == "OFF") {
+    AirconTemp.style.color = "#a4161a";
+    currentFan.style.color = "#a4161a";
+  } else {
+    AirconTemp.style.color = "white";
+    currentFan.style.color = "white";
+  }
 });
 
 // socket.on("send", (file) => {
