@@ -7,10 +7,16 @@ The Solution is an AI-based camera system that is able to detect humans in the c
 
 ## Dependancies
 
+**JavaScript Dependencies**
 
+
+**Python Dependencies**
+
+```bash
 - Mediapipe
 - python-socketio
 - opencv-python
+```
 
 ## Contributors
 - [Kah Shin](https://www.github.com/angks)
