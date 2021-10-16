@@ -95,7 +95,7 @@ pip install -r requirements.txt
 - [Shi Ting Xiao](https://www.github.com/tingxiao69)
 - [Tan Yu Hoe](https://www.github.com/tyh71)
 
-All of us are from the Diploma of Applied AI and Artficial Intelligence, Singapore Polytechnic's School of Computing.
+All of us are from the Diploma of Applied AI and Artificial Intelligence, Singapore Polytechnic's School of Computing.
 
 ---
 
