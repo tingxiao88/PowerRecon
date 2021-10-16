@@ -14,6 +14,16 @@ app.use("broadcast", express.static(__dirname + "/broadcast.html"));
 
 io.sockets.on("error", (e) => console.log(e));
 io.sockets.on("connection", (socket) => {
+  socket.emit("python_connection", () => {});
+  socket.emit("python_file");
+  socket.on("data_back", (object) => {
+    dictionary_from_json = JSON.parse(object);
+    console.log(dictionary_from_json);
+    socket.emit("send", dictionary_from_json);
+    console.log(dictionary_from_json["optimun_temp"]);
+    console.log("emit send");
+  });
+
   socket.on("broadcaster", () => {
     broadcaster = socket.id;
     socket.broadcast.emit("broadcaster");
