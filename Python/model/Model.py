@@ -19,8 +19,9 @@ sio.connect('https://video-stream-mlda.herokuapp.com/')
 @sio.on('python_connection')
 def connection():
     print(f"I'm connected!")
-
     temp_count = 0
+    if temp_count > 500:
+        temp_count = 0
     frames = 0
     counter = 0
     cap = cv2.VideoCapture(0)
