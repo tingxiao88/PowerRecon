@@ -1,0 +1,421 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: #e9ecef;
+  font-size: 15px;
+}
+html {
+  background-color: rgba(22, 22, 22);
+  width: 100%;
+  height: 100%;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+}
+
+a {
+  font-family: "Montserrat", sans-serif;
+}
+
+.nav_color {
+  background-color: rgba(22, 22, 22, 0.7);
+  backdrop-filter: blur(5px);
+  color: #dcddde;
+}
+.navbar {
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  min-height: 7rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-left: 10px;
+  margin-bottom: 0;
+  list-style: none;
+  border-bottom: 1px solid #333333;
+}
+
+.nav_left {
+  position: absolute;
+  left: 0;
+}
+
+.nav_right {
+  position: absolute;
+  right: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-left: 10px;
+  padding-right: 2rem;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.nav_logo {
+  display: block;
+  padding: none;
+  width: auto;
+  max-height: 4.5rem;
+  padding-left: 2rem;
+}
+
+a#nav_item {
+  display: block;
+  font-size: 3rem;
+  height: 5rem;
+  padding-top: 0.85rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+}
+
+.cursor-pointer-bg {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+
+.cursor {
+  background-color: white;
+  height: 70px;
+  width: 70px;
+  will-change: transform;
+  transition: transform 300ms ease-in-out;
+  transition: background-color 1s;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.main-header {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--box-bg);
+  box-shadow: var(--shadow);
+}
+
+marquee,
+p {
+  font-size: 3rem;
+}
+
+.underline-hover-effect {
+  padding-bottom: 0rem; /* defines the space between text and underline */
+  position: relative;
+}
+
+.underline-hover-effect::before {
+  content: "";
+  position: absolute;
+  top: 4.5rem;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.25s ease-out;
+}
+.underline-hover-effect:hover::before {
+  width: 99%;
+}
+
+#video {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3rem;
+  display: block;
+  z-index: 0px;
+}
+
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#overlay {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  position: absolute;
+  border-style: solid;
+  font-size: 50px;
+  color: rgba(22, 22, 22);
+  width: 100%;
+  height: 60px;
+  background-color: rgba(22, 22, 22);
+}
+#overlay > h1 {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  font-size: 40px;
+}
+
+#Chart {
+  min-width: 1000px;
+  border-radius: 50px;
+  margin-right: 4rem;
+}
+
+.controlPanel {
+  background-color: white;
+  width: 160px;
+  height: 100px;
+  position: relative;
+}
+
+.center {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1890px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* grid layout */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+[class*="col-"] {
+  padding: 0 15px;
+  margin-bottom: 20px;
+}
+
+.col-1 {
+  width: 8.33%;
+}
+
+.col-2 {
+  width: 16.66%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.33%;
+}
+
+.col-5 {
+  width: 41.66%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.33%;
+}
+
+.col-8 {
+  width: 66.66%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.33%;
+}
+
+.col-11 {
+  width: 91.66%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+/* MEDIUM SCREEN */
+
+@media only screen and (max-width: 1280px) {
+  .col-md-1 {
+    width: 8.33%;
+  }
+
+  .col-md-2 {
+    width: 16.66%;
+  }
+
+  .col-md-3 {
+    width: 25%;
+  }
+
+  .col-md-4 {
+    width: 33.33%;
+  }
+
+  .col-md-5 {
+    width: 41.66%;
+  }
+
+  .col-md-6 {
+    width: 50%;
+  }
+
+  .col-md-7 {
+    width: 58.33%;
+  }
+
+  .col-md-8 {
+    width: 66.66%;
+  }
+
+  .col-md-9 {
+    width: 75%;
+  }
+
+  .col-md-10 {
+    width: 83.33%;
+  }
+
+  .col-md-11 {
+    width: 91.66%;
+  }
+
+  .col-md-12 {
+    width: 100%;
+  }
+}
+
+/* SMALL SCREEN */
+
+@media only screen and (max-width: 850px) {
+  .col-sm-1 {
+    width: 8.33%;
+  }
+
+  .col-sm-2 {
+    width: 16.66%;
+  }
+
+  .col-sm-3 {
+    width: 25%;
+  }
+
+  .col-sm-4 {
+    width: 33.33%;
+  }
+
+  .col-sm-5 {
+    width: 41.66%;
+  }
+
+  .col-sm-6 {
+    width: 50%;
+  }
+
+  .col-sm-7 {
+    width: 58.33%;
+  }
+
+  .col-sm-8 {
+    width: 66.66%;
+  }
+
+  .col-sm-9 {
+    width: 75%;
+  }
+
+  .col-sm-10 {
+    width: 83.33%;
+  }
+
+  .col-sm-11 {
+    width: 91.66%;
+  }
+
+  .col-sm-12 {
+    width: 100%;
+  }
+}

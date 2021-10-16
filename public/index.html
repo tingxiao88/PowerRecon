@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Viewer</title>
+  <meta charset="UTF-8" />
+  <link href="/styles.css" rel="stylesheet" />
+  <link rel="stylesheet" href="app.css">
+</head>
+
+
+<body>
+  <header class="nav_color navbar">
+    <div class="nav_left">
+      <img class="nav_logo" src="./BW Transparent.png">
+    </div>
+    <div class="nav_right ">
+      <a id="nav_item" class='underline-hover-effect' href="index.html">Home</a>
+      <a id='nav_item' class='underline-hover-effect' href="index.html">Monitor</a>
+      <a id='nav_item' class='underline-hover-effect' href="index.html">Current Status</a>
+    </div>
+
+  </header>
+  <div class="container">
+    <video playsinline autoplay muted class="center" style="display: block;" id="video"></video>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main_2 dark">
+    <div class="main-header">
+      <div class="mobile-toggle" id="mobile-toggle">
+        <i class='bx bx-menu-alt-right'></i>
+      </div>
+      <div class="main-title">
+        dashboard
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="row">
+        <div class="col-3 col-md-6 col-sm-12">
+          <div class="box box-hover">
+            <!-- COUNTER -->
+            <div class="counter">
+              <div class="counter-title">
+                Current Temperature
+              </div>
+              <div class="counter-info">
+                <div class="counter-count" id="currentTemperature">
+                  Current Temperature Placeholder
+                </div>
+                <i class='bx bx-shopping-bag'></i>
+              </div>
+            </div>
+            <!-- END COUNTER -->
+          </div>
+        </div>
+        <div class="col-3 col-md-6 col-sm-12">
+          <div class="box box-hover">
+            <!-- COUNTER -->
+            <div class="counter">
+              <div class="counter-title">
+                Aircon Temperature
+              </div>
+              <div class="counter-info">
+                <div class="counter-count" id="AirconTemperature">
+                  Aircon Temperature placeholder
+                </div>
+                <i class='bx bx-chat'></i>
+              </div>
+            </div>
+            <!-- END COUNTER -->
+          </div>
+        </div>
+        <div class="col-3 col-md-6 col-sm-12">
+          <div class="box box-hover">
+            <!-- COUNTER -->
+            <div class="counter">
+              <div class="counter-title">
+                Aircon Fan Speed
+              </div>
+              <div class="counter-info">
+                <div class="counter-count" id='currentFanSpeed'>
+                  Aircon Fan Speed placeholder
+                </div>
+                <i class='bx bx-line-chart'></i>
+              </div>
+            </div>
+            <!-- END COUNTER -->
+          </div>
+        </div>
+        <div class="col-3 col-md-6 col-sm-12">
+          <div class="box box-hover">
+            <!-- COUNTER -->
+            <div class="counter">
+              <div class="counter-title">
+                Current Wattege
+              </div>
+              <div class="counter-info">
+                <div class="counter-count" id='currentWattege'>
+                  Current Wattege placeholder
+                </div>
+                <i class='bx bx-user'></i>
+              </div>
+            </div>
+            <!-- END COUNTER -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END MAIN CONTENT -->
+
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/watch.js"></script>
+</body>
+
+</html>
