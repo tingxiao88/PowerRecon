@@ -1,0 +1,5 @@
+mediapipe
+python-socketio[client]
+opencv-python
+datetime
+json

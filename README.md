@@ -12,10 +12,16 @@ The Solution is an AI-based camera system that is able to detect humans in the c
 
 **Python Dependencies**
 
-```bash
-- Mediapipe
-- python-socketio
+- mediapipe
+- python-socketio[client]
 - opencv-python
+- datetime
+- json
+
+```bash
+## Run the command below to install all necessary dependencies
+conda create --name PowerRecon python==3.8
+pip install -r requirements.txt
 ```
 
 ## Contributors
