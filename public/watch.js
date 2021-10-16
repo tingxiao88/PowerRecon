@@ -15,7 +15,34 @@ const config = {
 const socket = io.connect(window.location.origin);
 const video = document.querySelector("video");
 
+currentTemp = document.querySelector("#currentTemperature");
+optimumTemp = document.querySelector("#optimunTemp");
+AirconTemp = document.querySelector("#AirconTemperature");
+currentFan = document.querySelector("#currentFanSpeed");
+person = document.querySelector("#Person");
+
+console.log(currentTemp.innerHTML);
+console.log(optimumTemp);
+console.log(AirconTemp);
+console.log(currentFan);
+
+socket.on("send", (file) => {
+  console.log("data_incomming");
+  currentTemp.innerHTML = file["current-temp"];
+  optimumTemp.innerHTML = file["optimun_temp"];
+  currentFan.innerHTML = file["aircon-fan"];
+  AirconTemp.innerHTML = file["aircon-temp"];
+  person.innerHTML = file["person"];
+  console.log(file["current-temp"]);
+});
+
+// socket.on("send", (file) => {
+//   console.log("data_incomming");
+//   console.log(file);
+// });
+
 socket.on("offer", (id, description) => {
+  console.log("offer");
   peerConnection = new RTCPeerConnection(config);
   peerConnection
     .setRemoteDescription(description)
@@ -52,8 +79,3 @@ window.onunload = window.onbeforeunload = () => {
   socket.close();
   peerConnection.close();
 };
-
-function enableAudio() {
-  console.log("Enabling audio");
-  video.muted = false;
-}
